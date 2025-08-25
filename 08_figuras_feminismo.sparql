@@ -1,0 +1,16 @@
+SELECT DISTINCT ?person ?personLabel ?birth ?death ?whyLabel WHERE {
+  ?person wdt:P31 wd:Q5 ; wdt:P27 wd:Q419 .
+  OPTIONAL { ?person wdt:P569 ?birth . }
+  OPTIONAL { ?person wdt:P570 ?death . }
+
+  {
+    ?person wdt:P106/wdt:P279* wd:Q177220 .
+    BIND("ocupación (feminista)"@es AS ?whyLabel)
+  } UNION {
+    ?person wdt:P135/wdt:P279* wd:Q7252 .
+    BIND("movimiento (feminismo)"@es AS ?whyLabel)
+  }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?birth ?personLabel

@@ -1,0 +1,10 @@
+SELECT ?place ?placeLabel ?role ?coord WHERE {
+  VALUES ?person { wd:Q4822525 }
+  {
+    ?person wdt:P19 ?place . BIND("Nacimiento"@es AS ?role)
+  } UNION {
+    ?person wdt:P20 ?place . BIND("Fallecimiento"@es AS ?role)
+  }
+  OPTIONAL { ?place wdt:P625 ?coord . }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}

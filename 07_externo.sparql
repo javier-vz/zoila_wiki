@@ -1,0 +1,8 @@
+SELECT ?property ?propertyLabel ?id WHERE {
+  VALUES ?person { wd:Q4822525 }
+  ?person ?p ?id .
+  ?property wikibase:directClaim ?p .
+  ?property wikibase:propertyType wikibase:ExternalId .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?propertyLabel

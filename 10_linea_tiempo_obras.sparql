@@ -1,0 +1,6 @@
+SELECT ?work ?workLabel ?date WHERE {
+  ?work wdt:P50 wd:Q4822525 .
+  OPTIONAL { ?work wdt:P577 ?date . }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?date ?workLabel

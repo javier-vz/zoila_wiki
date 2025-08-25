@@ -1,0 +1,8 @@
+SELECT ?work ?workLabel ?date ?genreLabel ?topicLabel WHERE {
+  ?work wdt:P50 wd:Q4822525 .
+  OPTIONAL { ?work wdt:P577 ?date . }
+  OPTIONAL { ?work wdt:P136 ?genre . }
+  OPTIONAL { ?work wdt:P921 ?topic . }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?date ?workLabel

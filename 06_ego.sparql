@@ -1,0 +1,11 @@
+SELECT DISTINCT ?other ?otherLabel ?propEntity ?propEntityLabel WHERE {
+  VALUES ?person { wd:Q4822525 }
+  VALUES ?prop { wdt:P26 wdt:P22 wdt:P25 wdt:P3373 wdt:P69 wdt:P108 wdt:P737 }
+
+  { ?person ?prop ?other . } UNION { ?other ?prop ?person . }
+  ?other wdt:P31 wd:Q5 .
+
+  ?propEntity wikibase:directClaim ?prop .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?propEntityLabel ?otherLabel
