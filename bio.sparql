@@ -1,0 +1,11 @@
+SELECT ?prop ?propLabel ?value ?valueLabel WHERE {
+  VALUES ?person { wd:Q4822525 }  # Aurora Cáceres
+  VALUES ?prop {
+    wdt:P569 wdt:P570 wdt:P19 wdt:P20 wdt:P27
+    wdt:P106 wdt:P135 wdt:P69 wdt:P108 wdt:P800
+    wdt:P26 wdt:P22 wdt:P25
+  }
+  OPTIONAL { ?person ?prop ?value . }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?propLabel ?valueLabel
