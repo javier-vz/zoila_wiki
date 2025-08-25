@@ -1,0 +1,13 @@
+SELECT ?relacion ?pariente ?parienteLabel WHERE {
+  VALUES ?person { wd:Q4822525 }
+  VALUES (?prop ?relacion) {
+    (wdt:P22 "padre")
+    (wdt:P25 "madre")
+    (wdt:P26 "cónyuge")
+    (wdt:P40 "hijo/hija")
+    (wdt:P3373 "hermano/a")
+  }
+  OPTIONAL { ?person ?prop ?pariente . }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?relacion ?parienteLabel

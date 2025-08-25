@@ -1,0 +1,7 @@
+SELECT ?propEntity ?propEntityLabel ?value ?valueLabel WHERE {
+  BIND(wd:Q4822525 AS ?person)
+  ?person ?p ?value .
+  ?propEntity wikibase:directClaim ?p .
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es,en". }
+}
+ORDER BY ?propEntityLabel ?valueLabel
